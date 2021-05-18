@@ -3,7 +3,7 @@
  <div id="preloder">
     <div class="loader"></div>
     </div>
-    
+
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
     <div class="offcanvas__close">+</div>
@@ -25,8 +25,7 @@
     <a href="#">Register</a>
     </div>
     </div>
-    
-    
+
     <header class="header">
     <div class="container-fluid">
     <div class="row">
@@ -78,8 +77,7 @@
     </div>
     </div>
     </header>
-    
-    
+
     <section class="categories">
     <div class="container-fluid">
     <div class="row">
@@ -136,8 +134,7 @@
     </div>
     </div>
     </section>
-    
-    
+
     <section class="product spad">
     <div class="container">
     <div class="row">
@@ -149,10 +146,15 @@
     <div class="col-lg-8 col-md-8">
     </div>
     </div>
-    <div class="row property__gallery">
-    <div class="col-lg-3 col-md-4 col-sm-6 mix">
+    <div  class="row property__gallery" >
+  <!-- <div  class="row property__gallery" > -->
+    <div class="col-lg-3 col-md-4 col-sm-6 mix" v-for="item in itemList" :key="item.id">
     <div class="product__item">
-    <div class="product__item__pic set-bg" data-setbg="static/img/product/product-1.jpg">
+
+    <!-- <div class="product__item__pic set-bg" data-setbg="static/img/product/product-1.jpg"> -->
+    <div class="product__item__pic set-bg">
+      <img v-bind:src="item.imgUrl" alt="Girl in a jacket" width="500" height="600"/>
+    <!-- <div class="label new">New{{item}}</div> -->
     <div class="label new">New</div>
     <ul class="product__hover">
     <li><a href="static/img/product/product-1.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
@@ -161,7 +163,7 @@
     </ul>
     </div>
     <div class="product__item__text">
-    <h6><a href="#">Buttons tweed blazer</a></h6>
+    <h6><a href="#">{{item.itemName}}</a></h6>
     <div class="rating">
     <i class="fa fa-star"></i>
     <i class="fa fa-star"></i>
@@ -169,11 +171,11 @@
     <i class="fa fa-star"></i>
     <i class="fa fa-star"></i>
     </div>
-    <div class="product__price">$ 59.0</div>
+    <div class="product__price">$ {{item.price}}</div>
     </div>
     </div>
     </div>
-    <div class="col-lg-3 col-md-4 col-sm-6 mix">
+    <!-- <div class="col-lg-3 col-md-4 col-sm-6 mix">
     <div class="product__item">
     <div class="product__item__pic set-bg" data-setbg="static/img/product/product-2.jpg">
     <ul class="product__hover">
@@ -329,12 +331,11 @@
     <div class="product__price">$ 49.0 <span>$ 59.0</span></div>
     </div>
     </div>
-    </div>
+    </div> -->
     </div>
     </div>
     </section>
-    
-    
+
     <section class="banner set-bg" data-setbg="static/img/banner/banner-1.jpg">
     <div class="container">
     <div class="row">
@@ -366,8 +367,7 @@
     </div>
     </div>
     </section>
-    
-    
+
     <section class="trend spad">
     <div class="container">
     <div class="row">
@@ -539,8 +539,7 @@
     </div>
     </div>
     </section>
-    
-    
+
     <section class="discount">
     <div class="container">
     <div class="row">
@@ -580,8 +579,7 @@
     </div>
     </div>
     </section>
-    
-    
+
     <section class="services spad">
     <div class="container">
     <div class="row">
@@ -616,8 +614,7 @@
     </div>
     </div>
     </section>
-    
-    
+
     <div class="instagram">
     <div class="container-fluid">
     <div class="row">
@@ -672,8 +669,7 @@
     </div>
     </div>
     </div>
-    
-    
+
     <footer class="footer">
     <div class="container">
     <div class="row">
@@ -734,17 +730,16 @@
     </div>
     <div class="row">
     <div class="col-lg-12">
-    
+
     <div class="footer__copyright__text">
     <p>Copyright &copy; 2021 All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#" target="_blank">Heart</a></p>
     </div>
-    
+
     </div>
     </div>
     </div>
     </footer>
-    
-    
+
     <div class="search-model">
     <div class="h-100 d-flex align-items-center justify-content-center">
     <div class="search-close-switch">+</div>
@@ -752,6 +747,46 @@
     <input type="text" id="search-input" placeholder="Search here.....">
     </form>
     </div>
+          <router-view/>
     </div>
     </div>
+
 </template>
+<script>
+export default {
+  name: 'App',
+  data () {
+    return {
+      itemList: [
+        {
+          id: '1',
+          itemName: '優質短袖白T',
+          imgUrl: 'static/img/product/product-1.jpg',
+          price: '500',
+          count: '1'
+        },
+        {
+          id: '2',
+          itemName: '骷髏手短黑T',
+          imgUrl: 'static/img/product/product-2.jpg',
+          price: '790',
+          count: '1'
+        },
+        {
+          id: '3',
+          itemName: '超時尚牛仔庫',
+          imgUrl: 'static/img/product/product-3.jpg',
+          price: '1200',
+          count: '1'
+        },
+        {
+          id: '4',
+          itemName: '質感褐色系大衣服',
+          imgUrl: 'static/img/product/product-4.jpg',
+          price: '2300',
+          count: '1'
+        }]
+    }
+  }
+}
+</script>

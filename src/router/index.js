@@ -9,7 +9,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/hello',
+      path: '/',
       name: 'hello',
       component: HelloWorld
     },
@@ -24,6 +24,6 @@ export default new Router({
     //   component: ctof
     // },
     // router 轉址
-    { path: '/*', redirect: '/hello' }
+    { path: '/*', redirect: '/' }
   ]
 })
